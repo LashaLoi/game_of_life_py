@@ -3,8 +3,8 @@ black = (0, 0, 0)
 white = (255, 255, 255)
 
 # Settings
-fps = 5
-scale = 20
+fps = 60
+scale = 10
 offset = 1
 
 # Screen

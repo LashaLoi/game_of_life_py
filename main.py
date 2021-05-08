@@ -1,29 +1,10 @@
-import os
+from pygame import quit
 
-import pygame
+from config import get_config
+from start import run
 
-from constants import *
-from grid import Grid
+if __name__ == "__main__":
+    (grid, screen, clock) = get_config()
 
-os.environ["SDL_VIDEO_CENTERED"] = '1'
-
-pygame.init()
-pygame.display.set_caption("CONWAY'S GAME OF LIFE")
-screen = pygame.display.set_mode(size)
-clock = pygame.time.Clock()
-
-grid = Grid(width, height, scale, offset)
-grid.random2d_array()
-
-run = True
-while run:
-    clock.tick(fps)
-    screen.fill(black)
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
-
-    grid.render(screen)
-
-pygame.quit()
+    run(grid, screen, clock)
+    quit()

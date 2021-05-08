@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 from numpy import ndarray
 from pygame import draw, display
@@ -18,7 +18,7 @@ class Grid:
     def random2d_array(self):
         for x in range(self.rows):
             for y in range(self.columns):
-                self.grid_array[x][y] = random.randint(0, 1)
+                self.grid_array[x][y] = randint(0, 1)
 
     def get_neighbours(self, x, y):
         total = 0
@@ -48,9 +48,11 @@ class Grid:
     def render(self, screen):
         for x in range(self.rows):
             for y in range(self.columns):
+                random_color = (randint(10, 255), randint(10, 255), randint(10, 255))
+
                 y_pos = y * self.scale
                 x_pos = x * self.scale
-                random_color = (random.randint(10, 255), random.randint(10, 255), random.randint(10, 255))
+
                 if self.grid_array[x][y] == 1:
                     draw.rect(screen, random_color,
                               [x_pos, y_pos, self.scale - self.offset, self.scale - self.offset])
